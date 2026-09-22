@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Payment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3f8;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* Main Container */
+
+.wrapper{
+    width:100%;
+    max-width:1200px;
+    display:flex;
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+/* Left Image */
+
+.left-side{
+    width:45%;
+    background:#f5f8ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.left-side img{
+    width:100%;
+    max-width:420px;
+}
+
+/* Right Form */
+
+.right-side{
+    width:55%;
+    padding:40px;
+}
+
+h2{
+    text-align:center;
+    color:#1565C0;
+    margin-bottom:30px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:600;
+    color:#333;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    transition:.3s;
+    font-size:15px;
+}
+
+input:focus{
+    border-color:#1565C0;
+    box-shadow:0 0 8px rgba(21,101,192,.2);
+}
+
+.payment-title{
+    margin:20px 0 12px;
+    font-weight:600;
+}
+
+.radio-group{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.radio-box{
+    flex:1;
+    min-width:150px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    padding:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.radio-box:hover{
+    border-color:#1565C0;
+    background:#f3f8ff;
+}
+
+.radio-box input{
+    width:auto;
+    margin-right:8px;
+}
+
+button{
+    width:100%;
+    margin-top:30px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#1565C0,#42A5F5);
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(21,101,192,.35);
+}
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.wrapper{
+    flex-direction:column;
+}
+
+.left-side,
+.right-side{
+    width:100%;
+}
+
+.left-side{
+    padding:25px;
+}
+
+.left-side img{
+    max-width:280px;
+}
+
+.right-side{
+    padding:25px;
+}
+
+.radio-group{
+    flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- Payment Illustration -->
+
+    <div class="left-side">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2489/2489756.png"
+        alt="Online Payment">
+
+    </div>
+
+    <!-- Form -->
+    <div class="right-side">
+
+        <h2>Online Payment</h2>
+
+        <form action="/mode" method="post">
+
+            <div class="form-group">
+                <label>Booking ID</label>
+                <input type="text"  >
+            </div>
+
+            <div class="form-group">
+                <label>Garage Booked</label>
+                <input type="text">
+            </div>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text">
+            </div>
+
+            <div class="form-group">
+                <label>Aadhar Card</label>
+                <input type="text" >
+            </div>
+
+            <div class="form-group">
+                <label>Booking Amount (₹)</label>
+                <input type="text" >
+            </div>
+
+            <div class="payment-title">
+                Mode of Payment
+            </div>
+
+            <div class="radio-group">
+
+                <label class="radio-box">
+                    <input type="radio" name="pay"  value="credit">
+                    💳 Credit Card
+                </label>
+
+                <label class="radio-box">
+                    <input type="radio" name="pay" value="debit">
+                    💳 Debit Card
+                </label>
+
+                <label class="radio-box">
+                    <input type="radio" name="pay" value="upi">
+                    📱 UPI
+                </label>
+
+            </div>
+
+            <button type="submit" >Proceed Payment →</button>
+
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

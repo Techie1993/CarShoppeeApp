@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, .55), rgba(0, 0, 0, .55)),
+                        url('/images/car1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .main-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 520px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .18);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .4);
+        }
+
+        .card-body {
+            padding: 35px;
+        }
+
+        .title {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .title i {
+            font-size: 45px;
+            color: #ffc107;
+        }
+
+        label {
+            color: white;
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 30px;
+            height: 45px;
+        }
+
+        .input-group-text {
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            background: white;
+        }
+
+        .btn-register {
+            width: 100%;
+            border-radius: 30px;
+            height: 45px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .btn-login {
+            width: 100%;
+            border-radius: 30px;
+            height: 45px;
+            font-weight: bold;
+        }
+
+        .text-login {
+            color: white;
+            text-align: center;
+            margin: 18px 0 10px;
+        }
+
+        .alert-msg {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+<body>
+
+<div class="main-container justify-content-end pr-5">
+    <div class="card">
+        <div class="card-body">
+
+            <h2 class="title">
+                <i class="bi bi-car-front-fill"></i><br>
+                Car Registration
+            </h2>
+
+            <form th:action="@{/cars}"
+      method="post"
+      enctype="multipart/form-data">
+
+                <!-- Company Name -->
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" name="companyName" class="form-control rounded-pill" placeholder="Enter company name">
+                </div>
+
+                <!-- Car Name -->
+                <div class="form-group">
+                    <label>Car Name</label>
+                    <input type="text" name="carName" class="form-control rounded-pill" placeholder="Enter car name">
+                </div>
+
+                <!-- Model + Year (Responsive Row) -->
+                <div class="form-row">
+                    <div class="form-group col-md-6 col-12">
+                        <label>Model</label>
+                        <input type="text" name="model" class="form-control rounded-pill" placeholder="Car model">
+                    </div>
+
+                    <div class="form-group col-md-6 col-12">
+                        <label>Year</label>
+                        <input type="number" name="year" class="form-control rounded-pill" placeholder="Year">
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="form-group">
+                    <label>Selling Price</label>
+                    <input type="text"  name="purchasePrice" class="form-control rounded-pill" placeholder="Enter price">
+                </div>
+
+                <!-- Fuel Type -->
+                <div class="form-group">
+                    <label>Fuel Type</label>
+                    <select name="fuelType" class="form-control rounded-pill">
+                        <option>Select fuel type</option>
+                        <option>Petrol</option>
+                        <option>Diesel</option>
+                        <option>Electric</option>
+                        <option>Hybrid</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Distance Covered</label>
+                    <input type="text" name="distanceCovered" class="form-control rounded-pill" placeholder="Enter Distance Covered">
+                </div>
+                
+                <div class="form-group">
+                    <label>PUC Status</label>
+                    <input type="text" name="pucStatus" class="form-control rounded-pill" placeholder="PUC Status">
+                </div>
+                
+                <div class="form-group">
+                    <label>Gear Transmission</label>
+                    <input type="text" name="gearTransmission" class="form-control rounded-pill" placeholder="Enter Gear Transmission">
+                </div>
+                
+                <div class="form-group">
+                    <label>Gear Configuration</label>
+                    <input type="text" name="gearConfiguration" class="form-control rounded-pill" placeholder="Enter Gear Configuration">
+                </div>
+                
+                <div class="form-group">
+                    <label>Insurance</label>
+                    <input type="text" name="insurance" class="form-control rounded-pill" placeholder="Enter Insurance">
+                </div>
+                
+                <div class="form-group">
+                    <label>ChassisNumber</label>
+                    <input type="text" name="chassisNumber" class="form-control rounded-pill" placeholder="Enter Chessis Number">
+                </div>
+                
+                <div class="form-group">
+                    <label>Engine Number</label>
+                    <input type="text" name="engineNumber" class="form-control rounded-pill" placeholder="Enter Engine Number">
+                </div>
+                
+                <div class="form-group">
+                    <label>Registration Number</label>
+                    <input type="text" name="registrationNumber" class="form-control rounded-pill" placeholder="Registration Number">
+                </div>
+                <div class="form-group">
+
+    				<label>Car Images</label>
+
+				    <input type="file"				       
+						    name="carImages"
+						    multiple
+						    accept="image/*">
+										
+				    <label for="carImages" class="btn btn-warning btn-block rounded-pill">
+				        <i class="bi bi-images"></i> Upload Car Images
+				    </label>
+				
+				    <p id="fileName" class="text-white mt-2 text-center">
+				        No images selected
+				    </p>
+
+				</div>
+                
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" class="form-control rounded-pill" placeholder="Enter City">
+                </div>
+                
+                <div class="form-group">
+                    <label>Car Type</label>
+                    <select name="carType" class="form-control rounded-pill">
+                        <option>Select Car Type</option>
+                        <option>SUV</option>
+                        <option>MPV</option>
+                        <option>Sedan</option>
+                        <option>Micro</option>
+                        <option>Hatchback</option>
+                        <option>VAN</option>
+                        <option>Pick Up</option>
+            
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Emission Standards</label>
+                    <select name="emissionStandards" class="form-control rounded-pill">
+                        <option>Select Emision Type</option>
+                        <option>BS-1</option>
+                        <option>BS-2</option>
+                        <option>BS-3</option>
+                        <option>BS-4</option>
+                        <option>BS-5</option>
+                        <option>BS-6</option>
+                    </select>
+                </div>
+                
+				<div class="form-group">
+                    <label>Car Showroom Name</label>
+                    <input type="text" name="showroomName" class="form-control rounded-pill" placeholder="Car Showroom Name">
+                </div>
+                
+                
+                <div class="form-group">
+			    <label>Car Description</label>
+			    <textarea 
+			        name="description"
+			        class="form-control"
+			        placeholder="Enter Car Description">
+			    </textarea>
+				</div>
+
+                <!-- Submit Button -->
+                <button type="submit" name="submit" class="btn btn-warning btn-register mt-3">
+                    Register Car
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	
+	    const input = document.getElementById("carImages");
+	    const fileName = document.getElementById("fileName");
+	
+	    input.addEventListener("change", function () {
+	
+	        const files = this.files;
+	
+	        if (!files || files.length === 0) {
+	            fileName.innerText = "No images selected";
+	        } else {
+	            fileName.innerText = files.length + " image(s) selected";
+	        }
+	    });
+	
+	});
+</script>
+</html>

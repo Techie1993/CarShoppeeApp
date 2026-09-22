@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+<!-- Bootstrap 4.4.1 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+}
+
+body {
+	min-height: 100vh;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	/* Background Image */
+	background-image: url('/images/vint001.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Dark Overlay */
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.50);
+	z-index: 0;
+}
+
+/* Login Wrapper */
+.login-wrapper {
+	width: 100%;
+	max-width: 450px;
+	padding: 20px;
+	position: relative;
+	z-index: 1;
+}
+
+/* Login Card */
+.login-card {
+	background: #ffffff;
+	border: none;
+	border-radius: 18px;
+	padding: 35px 35px 30px;
+	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+	animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Login Heading */
+.login-title {
+	text-align: center;
+	font-weight: 700;
+	font-size: 30px;
+	color: #222;
+	margin-bottom: 8px;
+}
+
+.login-subtitle {
+	text-align: center;
+	color: #777;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+/* Labels */
+.form-group label {
+	font-weight: 600;
+	color: #333;
+	font-size: 14px;
+	margin-bottom: 7px;
+}
+
+.form-group label i {
+	color: #007bff;
+	margin-right: 4px;
+}
+
+/* Input */
+.form-control {
+	height: 46px;
+	border-radius: 8px;
+	border: 1px solid #d7d7d7;
+	padding-left: 14px;
+	font-size: 14px;
+	transition: all 0.3s ease;
+}
+
+.form-control:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.15);
+}
+
+.form-control::placeholder {
+	color: #aaa;
+}
+
+/* Password Wrapper */
+.password-wrapper {
+	position: relative;
+}
+
+.password-wrapper .form-control {
+	padding-right: 50px;
+}
+
+/* Eye Icon */
+.password-toggle {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: #777;
+	font-size: 18px;
+	transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+	color: #007bff;
+}
+
+/* Login Button */
+.login-btn {
+	width: 100%;
+	height: 46px;
+	border: none;
+	border-radius: 8px;
+	background: linear-gradient(135deg, #007bff, #0056d2);
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 7px 18px rgba(0, 123, 255, 0.35);
+}
+
+.login-btn:active {
+	transform: translateY(0);
+}
+
+/* Error Message */
+.error-box {
+	background: #ffe6e6;
+	color: #dc3545;
+	border-left: 4px solid #dc3545;
+	padding: 10px 12px;
+	border-radius: 6px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+.error-box i {
+	margin-right: 5px;
+}
+
+/* Footer */
+.login-footer {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 13px;
+	color: #888;
+}
+
+/* Animation */
+
+keyframes fadeIn {from { opacity:0;
+	transform: translateY(25px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+}
+
+/* Mobile Responsive */
+@media ( max-width : 576px) {
+	.login-wrapper {
+		padding: 15px;
+	}
+	.login-card {
+		padding: 28px 22px;
+	}
+	.login-title {
+		font-size: 25px;
+	}
+}
+</style>
+
+</head>
+
+
+<body>
+
+	<!-- Login Wrapper -->
+	<div class="login-wrapper">
+
+		<!-- Login Card -->
+		<div class="login-card">
+
+			<!-- Heading -->
+			<h2 class="login-title">Welcome Back</h2>
+
+			<p class="login-subtitle">Login to your account</p>
+
+
+			<!-- Error Message -->
+			<div th:if="${error}" class="error-box">
+
+				<i class="fas fa-exclamation-circle"></i> <span th:text="${error}">
+					Invalid email or password </span>
+
+			</div>
+
+
+			<!-- Login Form -->
+			<form th:action="@{/login}" th:object="${log}" method="post">
+
+
+				<!-- Email -->
+				<div class="form-group">
+
+					<label for="email"> <i class="fas fa-envelope"></i> Email
+						Address
+					</label> <input type="email" id="email" class="form-control"
+						placeholder="Enter your email address" th:field="*{uemail}"
+						autocomplete="email" required>
+
+				</div>
+
+
+				<!-- Password -->
+				<div class="form-group">
+
+					<label for="password"> <i class="fas fa-lock"></i> Password
+					</label>
+
+
+					<div class="password-wrapper">
+
+						<input type="password" id="password" class="form-control"
+							placeholder="Enter your password" th:field="*{upass}"
+							autocomplete="current-password" required>
+
+
+						<!-- Eye Icon -->
+						<span class="password-toggle" onclick="togglePassword()"
+							title="Show/Hide Password"> <i id="eyeIcon"
+							class="fas fa-eye"> </i>
+
+						</span>
+
+					</div>
+
+				</div>
+
+
+				<!-- Login Button -->
+				<div class="form-group mt-4">
+
+					<button type="submit" class="login-btn">
+
+						<i class="fas fa-sign-in-alt"></i> &nbsp; Login
+
+					</button>
+
+				</div>
+
+			</form>
+
+
+			<!-- Footer -->
+			<div class="login-footer">© 2026 Your Application</div>
+
+		</div>
+
+	</div>
+
+
+	<!-- Password Show / Hide JavaScript -->
+	<script>
+
+        function togglePassword() {
+
+            const passwordInput =
+                document.getElementById("password");
+
+            const eyeIcon =
+                document.getElementById("eyeIcon");
+
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+                eyeIcon.classList.remove("fa-eye");
+
+                eyeIcon.classList.add("fa-eye-slash");
+
+            } else {
+
+                passwordInput.type = "password";
+
+                eyeIcon.classList.remove("fa-eye-slash");
+
+                eyeIcon.classList.add("fa-eye");
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

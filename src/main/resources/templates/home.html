@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveX - Premium Cars</title>
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+	background: #000;
+}
+
+.navbar-brand {
+	color: #ff3c00 !important;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.nav-link {
+	color: white !important;
+	margin-left: 20px;
+	transition: .3s;
+}
+
+.nav-link:hover {
+	color: #ff3c00 !important;
+}
+
+/* Hero */
+.hero {
+	height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),
+		url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80');
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	color: white;
+}
+
+.hero h1 {
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.hero p {
+	font-size: 20px;
+	margin: 20px 0;
+}
+
+.btn-custom {
+	background: #ff3c00;
+	color: white;
+	padding: 12px 30px;
+	border: none;
+}
+
+.btn-custom:hover {
+	background: #d62f00;
+	color: white;
+}
+
+/* Section */
+section {
+	padding: 80px 0;
+}
+
+.title {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.title h2 {
+	font-weight: bold;
+}
+
+.line {
+	width: 80px;
+	height: 4px;
+	background: #ff3c00;
+	margin: auto;
+}
+
+/* Cards */
+.card {
+	border: none;
+	transition: .4s;
+	overflow: hidden;
+}
+
+.card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+}
+
+.card img {
+	height: 230px;
+	object-fit: cover;
+}
+
+/* Features */
+.feature-box {
+	background: white;
+	padding: 30px;
+	border-radius: 10px;
+	transition: .4s;
+}
+
+.feature-box:hover {
+	background: #ff3c00;
+	color: white;
+}
+
+.feature-box i {
+	font-size: 40px;
+}
+
+/* Contact */
+.contact {
+	background: #111;
+	color: white;
+}
+
+.form-control {
+	margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+	background: black;
+	color: white;
+	text-align: center;
+	padding: 20px;
+}
+
+.social i {
+	font-size: 22px;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.social i:hover {
+	color: #ff3c00;
+}
+
+/* Responsive */
+@media ( max-width :768px) {
+	.hero {
+		text-align: center;
+		height: 80vh;
+	}
+	.hero h1 {
+		font-size: 40px;
+	}
+	.hero p {
+		font-size: 18px;
+	}
+}
+</style>
+
+</head>
+<body>
+
+	<!-- Navbar -->
+
+	<nav class="navbar navbar-expand-lg fixed-top">
+		<div class="container">
+
+			<a class="navbar-brand" href="#">CarShopee</a>
+
+			<button class="navbar-toggler bg-light" data-bs-toggle="collapse"
+				data-bs-target="#menu">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="menu">
+
+				<!-- <ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a href="#home" class="nav-link">Home</a>
+</li>
+
+<li class="nav-item">
+<a href="#cars" class="nav-link">Cars</a>
+</li>
+
+<li class="nav-item">
+<a href="#about" class="nav-link">About</a>
+</li>
+
+<li class="nav-item">
+<a href="#contact" class="nav-link">Contact</a>
+</li>
+
+</ul> -->
+
+			</div>
+
+		</div>
+	</nav>
+
+	<!-- Hero -->
+
+	<section class="hero" id="home">
+
+		<div class="container">
+
+			<h1>Drive Your Dream Car</h1>
+
+			<p>Explore luxury, sports, electric, and family cars with modern
+				performance and premium comfort.</p>
+
+			<a href="/enlisted" class="btn btn-custom"> Explore Cars </a>
+
+		</div>
+
+	</section>
+
+	<!-- Cars -->
+
+	<section id="cars">
+
+		<div class="container">
+
+			<div class="title">
+				<h2>Featured Cars</h2>
+				<div class="line"></div>
+			</div>
+
+			<div class="row g-4">
+
+				<div class="col-lg-4 col-md-6">
+
+					<div class="card">
+
+						<img
+							src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80">
+
+						<div class="card-body">
+
+							<h4>Sports Car</h4>
+
+							<p>Powerful engine with aerodynamic design built for speed
+								and performance.</p>
+
+							<button class="btn btn-danger">Learn More</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-lg-4 col-md-6">
+
+					<div class="card">
+
+						<img
+							src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80">
+
+						<div class="card-body">
+
+							<h4>Luxury Sedan</h4>
+
+							<p>Premium comfort, advanced technology, and elegant styling
+								for everyday driving.</p>
+
+							<button class="btn btn-danger">Learn More</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-lg-4">
+
+					<div class="card">
+
+						<img
+							src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80">
+
+						<div class="card-body">
+
+							<h4>Electric SUV</h4>
+
+							<p>Eco-friendly performance with cutting-edge battery
+								technology and smart features.</p>
+
+							<button class="btn btn-danger">Learn More</button>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<!-- About -->
+
+	<section id="about" class="bg-light">
+
+		<div class="container">
+
+			<div class="row align-items-center">
+
+				<div class="col-lg-6">
+
+					<img
+						src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80"
+						class="img-fluid rounded">
+
+				</div>
+
+				<div class="col-lg-6">
+
+					<h2>About DriveX</h2>
+
+					<p class="mt-3">DriveX helps you discover the latest luxury,
+						sports, SUV, and electric cars. Our mission is to provide accurate
+						specifications, attractive designs, and an exceptional browsing
+						experience.</p>
+
+					<p>Find your next dream car with confidence and explore premium
+						automotive excellence.</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<!-- Features -->
+
+	<section>
+
+		<div class="container">
+
+			<div class="title">
+				<h2>Why Choose Us</h2>
+				<div class="line"></div>
+			</div>
+
+			<div class="row g-4">
+
+				<div class="col-md-4">
+
+					<div class="feature-box text-center">
+
+						<i class="bi bi-car-front-fill"></i>
+
+						<h4 class="mt-3">Latest Models</h4>
+
+						<p>Browse modern vehicles from leading manufacturers.</p>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="feature-box text-center">
+
+						<i class="bi bi-speedometer2"></i>
+
+						<h4 class="mt-3">High Performance</h4>
+
+						<p>Powerful engines with impressive efficiency.</p>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="feature-box text-center">
+
+						<i class="bi bi-shield-check"></i>
+
+						<h4 class="mt-3">Safe & Reliable</h4>
+
+						<p>Advanced safety features for a secure journey.</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<!-- Contact -->
+
+	<section class="contact" id="contact">
+
+		<div class="container">
+
+			<div class="title">
+
+				<h2>Contact Us</h2>
+
+				<div class="line"></div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-lg-6">
+
+					<h3>Get In Touch</h3>
+
+					<p>Have questions about our cars? Send us a message and we'll
+						respond shortly.</p>
+
+				</div>
+
+				<div class="col-lg-6">
+
+					<form action="/contacts" method="post" id="contactForm">
+
+						<input type="text" name="name" class="form-control" placeholder="Your Name"
+							required> 
+						<input type="email" class="form-control" name="email"
+							placeholder="Your Email" required>
+
+						<textarea class="form-control" rows="5" name="message" placeholder="Message"
+							required></textarea>
+
+						<button type="submit" class="btn btn-danger">Send Message</button>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<!-- Footer -->
+
+	<footer>
+
+		<div class="social">
+
+			<i class="bi bi-facebook"></i> <i class="bi bi-instagram"></i> <i
+				class="bi bi-twitter-x"></i> <i class="bi bi-youtube"></i>
+
+		</div>
+
+		<p>© 2026 DriveX. All Rights Reserved.</p>
+
+	</footer>
+
+	<!-- Bootstrap JS -->
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- <script>
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+alert("Thank you! Your message has been submitted.");
+
+this.reset();
+
+});
+
+</script> -->
+
+</body>
+</html>

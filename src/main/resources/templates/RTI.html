@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RTI Information Portal</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#081b29,#102d4b,#071d33);
+    min-height:100vh;
+    color:#fff;
+}
+
+/* Navbar */
+.navbar{
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.08)!important;
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+/* Hero */
+.hero{
+    padding:90px 0;
+}
+
+.hero h1{
+    font-weight:700;
+    font-size:3rem;
+}
+
+.hero p{
+    color:#d6d6d6;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#00e5ff,#8a7dff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Glass Cards */
+.glass{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+    transition:.35s;
+    overflow:hidden;
+}
+
+.glass:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:18px;
+    background:linear-gradient(135deg,#00d9ff,#6c63ff);
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+/* Timeline */
+.timeline{
+    border-left:3px solid #00d9ff;
+    padding-left:25px;
+}
+
+.timeline-item{
+    margin-bottom:35px;
+    position:relative;
+}
+
+.timeline-item::before{
+    content:'';
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#00d9ff;
+    position:absolute;
+    left:-34px;
+    top:4px;
+}
+
+.table-dark{
+    border-radius:15px;
+    overflow:hidden;
+}
+
+footer{
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(15px);
+}
+
+.btn-gradient{
+    background:linear-gradient(135deg,#00d9ff,#6c63ff);
+    border:none;
+    color:white;
+    border-radius:50px;
+    padding:12px 28px;
+}
+
+.badge-custom{
+    background:#00d9ff;
+    color:#000;
+}
+
+.section-title{
+    font-weight:700;
+    margin-bottom:35px;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#">
+<i class="bi bi-shield-check"></i> RTI Portal
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="#">RTI Guide</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Departments</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+<span class="badge badge-custom mb-3">Right To Information Act, 2005</span>
+
+<h1>
+Know Your
+<span class="gradient">Right to Information</span>
+</h1>
+
+<p class="mt-4">
+The Right to Information (RTI) Act empowers every citizen to
+request information from public authorities, promoting
+transparency, accountability, and good governance.
+</p>
+
+<button class="btn btn-gradient mt-3">
+<i class="bi bi-arrow-right-circle"></i>
+Learn More
+</button>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="glass p-4">
+
+<h3 class="mb-4">
+<i class="bi bi-info-circle-fill text-info"></i>
+Quick RTI Facts
+</h3>
+
+<ul class="list-group list-group-flush">
+
+<li class="list-group-item bg-transparent text-light border-secondary">
+✔ Applicable to Government/Public Authorities
+</li>
+
+<li class="list-group-item bg-transparent text-light border-secondary">
+✔ Citizens can seek official records and documents
+</li>
+
+<li class="list-group-item bg-transparent text-light border-secondary">
+✔ Standard reply within 30 days
+</li>
+
+<li class="list-group-item bg-transparent text-light border-secondary">
+✔ Appeals allowed if information is denied
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Features -->
+
+<section class="container py-5">
+
+<h2 class="text-center section-title">
+RTI Highlights
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="glass p-4 h-100">
+
+<div class="icon">
+<i class="bi bi-file-earmark-text"></i>
+</div>
+
+<h4>Request Information</h4>
+
+<p class="text-light">
+Citizens may request copies of government documents,
+records, circulars, reports and decisions.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="glass p-4 h-100">
+
+<div class="icon">
+<i class="bi bi-clock-history"></i>
+</div>
+
+<h4>Response Time</h4>
+
+<p class="text-light">
+The Public Information Officer (PIO) generally responds
+within 30 days of receiving an RTI application.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="glass p-4 h-100">
+
+<div class="icon">
+<i class="bi bi-shield-lock"></i>
+</div>
+
+<h4>Transparency</h4>
+
+<p class="text-light">
+The RTI Act strengthens transparency and accountability
+in public administration.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Timeline -->
+
+<section class="container py-5">
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<h2 class="section-title">
+RTI Process
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h5>1. Submit RTI Application</h5>
+<p class="text-light">
+Submit an application to the Public Information Officer.
+</p>
+</div>
+
+<div class="timeline-item">
+<h5>2. Processing</h5>
+<p class="text-light">
+The concerned department verifies and processes the request.
+</p>
+</div>
+
+<div class="timeline-item">
+<h5>3. Receive Response</h5>
+<p class="text-light">
+Information is supplied or valid reasons for denial are provided.
+</p>
+</div>
+
+<div class="timeline-item">
+<h5>4. Appeal</h5>
+<p class="text-light">
+If dissatisfied, the applicant may file a First or Second Appeal.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<h2 class="section-title">
+Important Information
+</h2>
+
+<div class="glass p-4">
+
+<table class="table table-dark table-hover align-middle">
+
+<thead>
+
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Act</td>
+<td>Right to Information Act, 2005</td>
+</tr>
+
+<tr>
+<td>Eligibility</td>
+<td>Indian Citizens</td>
+</tr>
+
+<tr>
+<td>Response Time</td>
+<td>30 Days</td>
+</tr>
+
+<tr>
+<td>Application Fee</td>
+<td>As prescribed by authority</td>
+</tr>
+
+<tr>
+<td>Appeal</td>
+<td>Available if request is rejected</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="container py-5">
+
+<h2 class="text-center section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="accordion accordion-flush" id="faq">
+
+<div class="accordion-item bg-dark text-white">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed bg-dark text-white"
+data-bs-toggle="collapse"
+data-bs-target="#q1">
+
+What is RTI?
+
+</button>
+
+</h2>
+
+<div id="q1" class="accordion-collapse collapse">
+
+<div class="accordion-body">
+
+RTI allows Indian citizens to seek information from public authorities to ensure transparency and accountability.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="accordion-item bg-dark text-white">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed bg-dark text-white"
+data-bs-toggle="collapse"
+data-bs-target="#q2">
+
+Who can file an RTI?
+
+</button>
+
+</h2>
+
+<div id="q2" class="accordion-collapse collapse">
+
+<div class="accordion-body">
+
+Any Indian citizen can file an RTI application.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="accordion-item bg-dark text-white">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed bg-dark text-white"
+data-bs-toggle="collapse"
+data-bs-target="#q3">
+
+How long does it take?
+
+</button>
+
+</h2>
+
+<div id="q3" class="accordion-collapse collapse">
+
+<div class="accordion-body">
+
+Normally within 30 days from receipt of the application.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="text-center py-4 mt-5">
+
+<h5>RTI Information Portal</h5>
+
+<p class="text-light mb-1">
+Designed with Bootstrap 5 • Modern Glassmorphism UI
+</p>
+
+<p class="small text-secondary">
+© 2026 RTI Information Demo Website
+</p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

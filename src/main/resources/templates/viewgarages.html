@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Garage Details</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+	rel="stylesheet">
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #020617;
+	font-family: 'Segoe UI', sans-serif;
+	color: white;
+}
+
+.page {
+	width: 100%;
+}
+
+/*==========================
+1. IMAGE CAROUSEL
+==========================*/
+.carousel-section {
+	height: 70vh;
+	padding: 30px 60px;
+}
+
+.carousel {
+	height: 100%;
+	border-radius: 35px;
+	overflow: hidden;
+	box-shadow: 0 30px 80px black;
+}
+
+.carousel-inner, .carousel-item {
+	height: 100%;
+}
+
+.carousel img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/*==========================
+2. GARAGE DATA
+==========================*/
+.garage-data {
+	padding: 45px 80px;
+	background: linear-gradient(135deg, #111827, #020617);
+	text-align: center;
+}
+
+.garage-type {
+	font-size: 24px;
+	color: #38bdf8;
+	font-weight: 700;
+}
+
+.garage-name {
+	font-size: 55px;
+	font-weight: 900;
+	color: #fbbf24;
+}
+
+.owner {
+	font-size: 30px;
+	color: #22c55e;
+	margin-top: 15px;
+	font-weight: bold;
+}
+
+.info-container {
+	display: flex;
+	justify-content: center;
+	gap: 25px;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+
+.info-card {
+	width: 220px;
+	padding: 25px;
+	background: rgba(255, 255, 255, .08);
+	border-radius: 25px;
+	box-shadow: 0 15px 30px black;
+}
+
+.info-card i {
+	font-size: 35px;
+	color: #38bdf8;
+}
+
+.label {
+	margin-top: 10px;
+	color: #94a3b8;
+}
+
+.value {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/*==========================
+3. DESCRIPTION
+==========================*/
+.description-section {
+	padding: 50px 100px;
+}
+
+.description-box {
+	background: rgba(255, 255, 255, .08);
+	padding: 45px;
+	border-radius: 30px;
+	backdrop-filter: blur(15px);
+	border: 1px solid rgba(255, 255, 255, .15);
+	box-shadow: 0 20px 50px black;
+}
+
+.description-box h2 {
+	color: #f97316;
+	margin-bottom: 20px;
+}
+
+.description-box p {
+	font-size: 20px;
+	line-height: 1.8;
+	color: #e5e7eb;
+}
+
+@media ( max-width :768px) {
+	.carousel-section {
+		height: 40vh;
+		padding: 20px;
+	}
+	.garage-data {
+		padding: 30px 20px;
+	}
+	.description-section {
+		padding: 30px 20px;
+	}
+	.garage-name {
+		font-size: 35px;
+	}
+	.info-card {
+		width: 100%;
+	}
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="page">
+
+		<!-------------------------
+1. IMAGE CAROUSEL
+-------------------------->
+
+		<section class="carousel-section">
+
+			<div id="garageCarousel" class="carousel slide"
+				data-bs-ride="carousel" data-bs-interval="2500">
+
+				<div class="carousel-inner">
+
+					<div th:each="img,status:${garage.gimages}" class="carousel-item"
+						th:classappend="${status.index==0} ? 'active'">
+
+						<img th:src="@{/garage/image/{id}(id=${img.imageId})}"
+							class="d-block w-100">
+
+					</div>
+
+				</div>
+
+				<button class="carousel-control-prev"
+					data-bs-target="#garageCarousel" data-bs-slide="prev">
+
+					<span class="carousel-control-prev-icon"></span>
+
+				</button>
+
+				<button class="carousel-control-next"
+					data-bs-target="#garageCarousel" data-bs-slide="next">
+
+					<span class="carousel-control-next-icon"></span>
+
+				</button>
+
+			</div>
+
+		</section>
+
+		<!-------------------------
+2. GARAGE INFORMATION
+-------------------------->
+
+		<section class="garage-data">
+
+			<div class="garage-type" th:text="${garage.garageType}">
+				Authorized Garage</div>
+
+			<div class="garage-name" th:text="${garage.garageName}">Shree
+				Motors</div>
+
+			<div class="owner">
+				Owner : <span th:text="${garage.owner}">Rahul Patil</span>
+			</div>
+
+			<div class="info-container">
+
+				<div class="info-card">
+
+					<i class="bi bi-geo-alt"></i>
+
+					<div class="label">CITY</div>
+
+					<div class="value" th:text="${garage.city}">Pune</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<i class="bi bi-map"></i>
+
+					<div class="label">ADDRESS</div>
+
+					<div class="value" th:text="${garage.address}">Baner</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<i class="bi bi-tools"></i>
+
+					<div class="label">EXPERIENCE</div>
+
+					<div class="value">
+						<span th:text="${garage.exp}"></span> Years
+					</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<i class="bi bi-wrench-adjustable"></i>
+
+					<div class="label">SERVICES</div>
+
+					<div class="value" th:text="${garage.services}">Repairing</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<i class="bi bi-clock-history"></i>
+
+					<div class="label">WORKING HOURS</div>
+
+					<div class="value" th:text="${garage.workingHrs}">9 AM - 7 PM
+					</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<i class="bi bi-cash-stack"></i>
+
+					<div class="label">BOOKING AMOUNT</div>
+
+					<div class="value">
+
+						₹ <span th:text="${garage.bookamt}"></span>
+
+					</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<i class="bi bi-file-earmark-check"></i>
+
+					<div class="label">GST NUMBER</div>
+
+					<div class="value" th:text="${garage.gstNum}">GST123456</div>
+
+				</div>
+
+				<div class="info-card">
+
+					<i class="bi bi-patch-check-fill"></i>
+
+					<div class="label">REGISTRATION</div>
+
+					<div class="value" th:text="${garage.regnum}">MH12AB1234</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-------------------------
+3. DESCRIPTION
+-------------------------->
+
+		<section class="description-section">
+
+			<div class="description-box">
+
+				<h2>About Garage</h2>
+
+				<p th:text="${garage.description}">Garage Description</p>
+
+			</div>
+
+		</section>
+
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
