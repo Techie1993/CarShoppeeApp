@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -209,18 +212,6 @@ public class UserController {
 		
 		
 		
-		// Logic for Showing Enlisted Sellers
-		@GetMapping("/enlistedsellers")
-		public String EnlistedSellers(Model model) {
-
-			List<SellersInfo> enlisted = sell.getAllSellers();
-
-			model.addAttribute("sellers", enlisted);
-
-			return "enlistedsellers";
-		}
-		
-		
 		@GetMapping("/deleteseller")
 		public String DelSellerById(@RequestParam int sid) {
 			sell.deleteById(sid);
@@ -252,6 +243,35 @@ public class UserController {
 			    }
 			}
 		
+		// Logic for Pagination for seller
+		
+			@GetMapping("/enlistedsellers")
+			public String enlistedSeller(
+			        @RequestParam(defaultValue = "0") int pageNo,
+			        @RequestParam(defaultValue = "3") int pageSize,
+			        Model model) {
+
+			    Page<SellersInfo> page =
+			            sell.GetAllSellers(pageNo, pageSize);
+
+			    model.addAttribute("sellers", page.getContent());
+			    model.addAttribute("currentPage", pageNo);
+			    model.addAttribute("totalPages", page.getTotalPages());
+			    model.addAttribute("pageSize", pageSize);
+
+			    return "enlistedsellers";
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		
 	// Logic for Review Page
 	@GetMapping("/trust")
@@ -271,14 +291,20 @@ public class UserController {
 
 	// Logic for Enlisted Cars
 	@GetMapping("/enlisted")
-	public String EnlistedCars(Model model) {
+	public String EnlistedCars(
+	        @RequestParam(defaultValue = "0") int pageNo,
+	        @RequestParam(defaultValue = "3") int pageSize,
+	        Model model) {
 
-		List<CarEntity> cars = cserv.getAllCars();
+	    Page<CarEntity> page = cserv.GetAllCars(pageNo, pageSize);
 
-		model.addAttribute("cars", cars);
+	    model.addAttribute("cars", page.getContent());
+	    model.addAttribute("currentPage", pageNo);
+	    model.addAttribute("totalPages", page.getTotalPages());
 
-		return "enlistedcars";
-	}
+	    return "enlistedcars";
+	}	
+	
 
 	 
 	// Logic for search cars as per company
@@ -301,29 +327,48 @@ public class UserController {
 	    cserv.deleteById(carid);
 	    return "redirect:/enlisted";
 	}
-	  
-
+	
 	// Logic for Review Page
 	@GetMapping("/garage")
 	public String OpenGarage() {
 		return "garage";
 	}
 
+	
 	// Logic for Saving Garage Data
 	@PostMapping("/garage")
-	public String SaveGarage(@ModelAttribute GarageEntity garage,
-			@RequestParam(value = "addressFile", required = false) MultipartFile addressProof,
-			@RequestParam(value = "garageImages", required = false) MultipartFile[] files) throws IOException {
+	public String SaveGarage(
+	        @ModelAttribute GarageEntity garage,
+	        @RequestParam(value = "addressFile", required = false) MultipartFile addressProof,
+	        @RequestParam(value = "garageImages", required = false) MultipartFile[] files) throws IOException {
 
-		if (addressProof != null && !addressProof.isEmpty()) {
-			garage.setAddressProof(addressProof.getBytes());
-		}
+	    System.out.println("========== SAVE GARAGE START ==========");
 
-		gserv.save(garage, files);
+	    System.out.println("Garage Name: " + garage.getGarageName());
+	    System.out.println("Owner: " + garage.getOwner());
+	    System.out.println("City: " + garage.getCity());
 
-		return "redirect:/garage";
+	    System.out.println("Address File: " +
+	            (addressProof != null ? addressProof.getOriginalFilename() : "NULL"));
+
+	    System.out.println("Garage Images: " +
+	            (files != null ? files.length : "NULL"));
+
+	    if (addressProof != null && !addressProof.isEmpty()) {
+	        garage.setAddressProof(addressProof.getBytes());
+	        System.out.println("Address proof set successfully");
+	    }
+
+	    System.out.println("Before calling service...");
+
+	    gserv.save(garage, files);
+
+	    System.out.println("After calling service...");
+
+	    System.out.println("========== SAVE GARAGE END ==========");
+
+	    return "redirect:/garage";
 	}
-	
 	
 	// Logic for searching Garages
 	 @GetMapping("/searchGarage")
@@ -337,6 +382,9 @@ public class UserController {
 	      return "pgarage";
 	  }
 	 
+	 
+	
+		
 	 @GetMapping("/deletegarage")
 		public String DelGarageById(@RequestParam("gid") int gid) {
 		     gserv.deleteById(gid);
@@ -353,8 +401,29 @@ public class UserController {
 		    return "viewgarages";   
 		}
 	  
-	
+	 
+		
+	 @GetMapping("/pgarage")
+	 public String enlistedGarages(
+	         @RequestParam(defaultValue = "0") int pageNo,
+	         @RequestParam(defaultValue = "3") int pageSize,
+	         Model model) {
 
+	    
+	     Page<GarageEntity> page =
+	             gserv.GetAllGarages(pageNo, pageSize);
+
+	    
+	     model.addAttribute("garages", page.getContent());
+	     model.addAttribute("currentPage", pageNo);
+	     model.addAttribute("totalPages", page.getTotalPages());
+	     model.addAttribute("pageSize", pageSize);
+
+	     return "pgarage";
+	 }
+	 
+	 
+	 
 	@GetMapping("/rti")
 	public String RTI() {
 		return "RTI";
@@ -394,16 +463,19 @@ public class UserController {
 	}
 	
 	
-	// Logic for Showing Enlisted Garages
-	@GetMapping("/pgarage")
-	public String EnlistedGarages(Model model) {
-
-		List<GarageEntity> garages = gserv.getAllGarages();
-
-		model.addAttribute("garages", garages);
-
-		return "pgarage";
-	}
+	/*
+	 * // Logic for Showing Enlisted Garages
+	 * 
+	 * @GetMapping("/pgarage") public String EnlistedGarages(Model model) {
+	 * 
+	 * List<GarageEntity> garages = gserv.getAllGarages();
+	 * 
+	 * model.addAttribute("garages", garages);
+	 * 
+	 * return "pgarage"; }
+	 */
+	
+	
 	
 	
 	
@@ -606,8 +678,6 @@ public class UserController {
 
 	    return "redirect:/payments";
 	}
-	
-	  
 	  
 	    
 }

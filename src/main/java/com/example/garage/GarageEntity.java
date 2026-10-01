@@ -41,7 +41,7 @@ public class GarageEntity {
     private String address;
 	
 	@Column(name="expereince")
-    private int exp;
+    private Integer exp;
 	
 	@Column(name="services")
     private String services;
@@ -98,11 +98,11 @@ public class GarageEntity {
 		System.out.println("Default...");
 	}
 
-
-	public GarageEntity(Integer gid, String garageName, String owner, String city, String address, int exp,
+	
+	public GarageEntity(Integer gid, String garageName, String owner, String city, String address, Integer exp,
 			String services, String garageType, String workingHrs, String regnum, String gstNum, Integer bookamt,
-			byte[] addressProof, String description, String activesw, List<GarageImages> gimages,
-			List<BookingServiceEntity> bookings, PaymentEntity payment) {
+			byte[] addressProof, String description, String activesw, LocalDateTime create, LocalDateTime update,
+			List<GarageImages> gimages, List<BookingServiceEntity> bookings, PaymentEntity payment) {
 		super();
 		this.gid = gid;
 		this.garageName = garageName;
@@ -119,12 +119,14 @@ public class GarageEntity {
 		this.addressProof = addressProof;
 		this.description = description;
 		this.activesw = activesw;
+		this.create = create;
+		this.update = update;
 		this.gimages = gimages;
 		this.bookings = bookings;
 		this.payment = payment;
 	}
 
-
+	
 	public Integer getGid() {
 		return gid;
 	}
@@ -175,12 +177,12 @@ public class GarageEntity {
 	}
 
 
-	public int getExp() {
+	public Integer getExp() {
 		return exp;
 	}
 
 
-	public void setExp(int exp) {
+	public void setExp(Integer exp) {
 		this.exp = exp;
 	}
 
@@ -334,5 +336,4 @@ public class GarageEntity {
 				+ activesw + ", create=" + create + ", update=" + update + ", gimages=" + gimages + ", bookings="
 				+ bookings + ", payment=" + payment + "]";
 	}
-
 }

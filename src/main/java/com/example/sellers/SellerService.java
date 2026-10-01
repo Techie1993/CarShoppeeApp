@@ -2,7 +2,10 @@ package com.example.sellers;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.example.demo.Registration;
+import com.example.garage.GarageEntity;
 
 public interface SellerService {
 	public List<SellersInfo>getAllSellers();
@@ -16,4 +19,10 @@ public interface SellerService {
 	public void DeleteAll();
 	
 	List<SellersInfo>searchByKeyword(String keyword);
+	
+	public Page<SellersInfo> GetAllSellers(int pagenum,int pagesize);
+	
+	
+	
+	
 }

@@ -3,295 +3,294 @@
 
 <head>
 
-    <title>Enlisted Cars</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-          rel="stylesheet">
-
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        body {
-
-            min-height: 100vh;
-
-            background:
-            linear-gradient(
-                rgba(0,0,0,0.72),
-                rgba(0,0,0,0.82)
-            ),
-            url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80');
-
-
-            background-size: cover;
-
-            background-position: center;
-
-            background-attachment: fixed;
-
-            font-family: 'Segoe UI', sans-serif;
-
-            color: white;
-
-        }
-
-
-        /* Page Heading */
-
-        .page-title {
-
-            text-align: center;
-
-            margin: 35px 0;
-
-            font-size: 38px;
-
-            font-weight: 800;
-
-            color: white;
-
-            text-shadow: 0 5px 15px black;
-
-        }
-
-
-
-        /* Masonry Layout */
-
-        .masonry {
-
-            column-count: 3;
-
-            column-gap: 20px;
-
-            max-width: 1200px;
-
-            margin: auto;
-
-        }
-
-
-
-        /* Car Card */
-
-        .car-tile {
-
-            display: inline-block;
-
-            width: 100%;
-
-            margin-bottom: 20px;
-
-            break-inside: avoid;
-
-
-            background: rgba(255,255,255,0.14);
-
-            backdrop-filter: blur(12px);
-
-
-            border: 1px solid rgba(255,255,255,0.25);
-
-            border-radius: 20px;
-
-
-            overflow: hidden;
-
-
-            box-shadow:
-            0 15px 35px rgba(0,0,0,0.6);
-
-
-            transition: 0.4s;
-
-        }
-
-
-
-        .car-tile:hover {
-
-            transform: translateY(-10px);
-
-
-            background: rgba(255,255,255,0.20);
-
-
-            box-shadow:
-            0 20px 45px rgba(0,0,0,0.8);
-
-        }
-
-
-
-
-        /* Card Body */
-
-        .car-body {
-
-            padding: 20px;
-
-        }
-
-
-
-        .car-title {
-
-            font-size: 21px;
-
-            font-weight: 800;
-
-            color: white;
-
-        }
-
-
-
-        .price {
-
-            color: #22c55e;
-
-            font-size: 20px;
-
-            font-weight: 800;
-
-            margin: 10px 0;
-
-        }
-
-
-
-        .info {
-
-            color: #e5e7eb;
-
-            font-size: 14px;
-
-            margin: 8px 0;
-
-        }
-
-
-
-        .info i {
-
-            color: #38bdf8;
-
-            margin-right: 8px;
-
-            font-size: 16px;
-
-        }
-
-
-
-        /* Model Badge */
-
-        .badge-custom {
-
-            display: inline-block;
-
-            background: #f97316;
-
-            color: white;
-
-
-            padding: 6px 14px;
-
-            border-radius: 20px;
-
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-
-            margin-top: 10px;
-
-        }
-
-
-
-        /* View Button */
-
-        .btn-details {
-
-            display: block;
-
-            margin-top: 18px;
-
-            padding: 11px;
-
-
-            text-align: center;
-
-
-            background: #f97316;
-
-            color: white;
-
-
-            border-radius: 12px;
-
-
-            text-decoration: none;
-
-
-            font-weight: 700;
-
-
-            transition: 0.3s;
-
-        }
-
-
-
-        .btn-details:hover {
-
-            background: #ea580c;
-
-            color: white;
-
-        }
-
-
-
-        /* Responsive */
-
-        @media(max-width:992px) {
-
-            .masonry {
-
-                column-count: 2;
-
-            }
-
-        }
-
-
-
-        @media(max-width:576px) {
-
-            .masonry {
-
-                column-count: 1;
-
-            }
-
-        }
-
-
-    </style>
-
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enlisted Cars</title>
+
+
+<!-- Bootstrap -->
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+
+<!-- Bootstrap Icons -->
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+	rel="stylesheet">
+
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* =========================
+           BODY
+           ========================= */
+body {
+	min-height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.82)),
+		url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	font-family: 'Segoe UI', sans-serif;
+	color: white;
+}
+
+/* =========================
+           PAGE TITLE
+           ========================= */
+.page-title {
+	text-align: center;
+	margin: 35px 0;
+	font-size: 38px;
+	font-weight: 800;
+	color: white;
+	text-shadow: 0 5px 15px black;
+}
+
+/* =========================
+           SEARCH BAR
+           ========================= */
+.search-section {
+	margin-bottom: 35px;
+}
+
+.search-section .form-control {
+	height: 55px;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.search-section .input-group-text {
+	height: 55px;
+	border-radius: 10px 0 0 10px;
+}
+
+.search-section button {
+	height: 55px;
+	padding: 0 25px;
+	border-radius: 0 10px 10px 0;
+}
+
+/* =========================
+           MASONRY
+           ========================= */
+.masonry {
+	column-count: 3;
+	column-gap: 20px;
+	max-width: 1200px;
+	margin: auto;
+}
+
+/* =========================
+           CAR CARD
+           ========================= */
+.car-tile {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 20px;
+	break-inside: avoid;
+	background: rgba(255, 255, 255, 0.14);
+	backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+	transition: 0.4s;
+}
+
+.car-tile:hover {
+	transform: translateY(-10px);
+	background: rgba(255, 255, 255, 0.20);
+	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================
+           CARD BODY
+           ========================= */
+.car-body {
+	padding: 20px;
+}
+
+/* =========================
+           CAR TITLE
+           ========================= */
+.car-title {
+	font-size: 21px;
+	font-weight: 800;
+	color: white;
+	margin-bottom: 5px;
+}
+
+/* =========================
+           PRICE
+           ========================= */
+.price {
+	color: #22c55e;
+	font-size: 20px;
+	font-weight: 800;
+	margin: 10px 0;
+}
+
+/* =========================
+           INFORMATION
+           ========================= */
+.info {
+	color: #e5e7eb;
+	font-size: 14px;
+	margin: 8px 0;
+}
+
+.info i {
+	color: #38bdf8;
+	margin-right: 8px;
+	font-size: 16px;
+}
+
+/* =========================
+           MODEL BADGE
+           ========================= */
+.badge-custom {
+	display: inline-block;
+	background: #f97316;
+	color: white;
+	padding: 6px 14px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 700;
+	margin-top: 10px;
+}
+
+/* =========================
+           BUTTONS
+           ========================= */
+.btn-details {
+	display: block;
+	margin-top: 18px;
+	padding: 11px;
+	text-align: center;
+	background: #f97316;
+	color: white;
+	border-radius: 12px;
+	text-decoration: none;
+	font-weight: 700;
+	transition: 0.3s;
+}
+
+.btn-details:hover {
+	background: #ea580c;
+	color: white;
+}
+
+/* =========================
+           PAGINATION SECTION
+           ========================= */
+.pagination-section {
+	margin-top: 40px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+/* =========================
+           PAGINATION
+           ========================= */
+.pagination {
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
+.pagination .page-item {
+	margin: 0 3px;
+}
+
+.pagination .page-link {
+	background: rgba(255, 255, 255, 0.15);
+	color: white;
+	border: 1px solid rgba(255, 255, 255, 0.30);
+	border-radius: 10px;
+	padding: 10px 16px;
+	font-weight: 600;
+	transition: 0.3s;
+}
+
+.pagination .page-link:hover {
+	background: #f97316;
+	color: white;
+	border-color: #f97316;
+}
+
+/* Active Page */
+.pagination .page-item.active .page-link {
+	background: #f97316;
+	border-color: #f97316;
+	color: white;
+	font-weight: 800;
+	box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
+}
+
+/* Disabled */
+.pagination .page-item.disabled .page-link {
+	background: rgba(255, 255, 255, 0.06);
+	color: #777;
+	border-color: rgba(255, 255, 255, 0.10);
+	cursor: not-allowed;
+}
+
+/* =========================
+           PAGE INFORMATION
+           ========================= */
+.page-info {
+	color: #d1d5db;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.page-info strong {
+	color: #f97316;
+}
+
+/* =========================
+           NO RECORD
+           ========================= */
+.no-record {
+	text-align: center;
+	padding: 50px;
+	color: white;
+	font-size: 20px;
+}
+
+/* =========================
+           RESPONSIVE
+           ========================= */
+@media ( max-width : 992px) {
+	.masonry {
+		column-count: 2;
+	}
+}
+
+@media ( max-width : 576px) {
+	.masonry {
+		column-count: 1;
+	}
+	.page-title {
+		font-size: 30px;
+		margin: 25px 0;
+	}
+	.pagination .page-link {
+		padding: 8px 11px;
+		font-size: 13px;
+	}
+}
+</style>
 
 </head>
 
@@ -299,130 +298,260 @@
 <body>
 
 
-<div class="container">
+	<div class="container">
 
 
-    <h2 class="page-title">
-        🚘 Enlisted Cars
-    </h2>
-    
-    <!-- Search Bar -->
-<div class="row justify-content-center mb-4">
-    <div class="col-md-6">
-        <form th:action="@{/search}" method="get">
-            <div class="input-group input-group-lg">
+		<!-- ================================================= -->
+		<!-- PAGE TITLE -->
+		<!-- ================================================= -->
 
-                <span class="input-group-text bg-white border-0">
-                    <i class="bi bi-search"></i>
-                </span>
+		<h2 class="page-title">🚘 Enlisted Cars</h2>
 
-                <input type="text"
-                       name="keyword"
-                       class="form-control border-0"
-                       placeholder="Search by Company, Car Name, City..."
-                       th:value="${keyword}">
 
-                <button class="btn btn-warning fw-bold" type="submit">
-                    Search
-                </button>
 
-            </div>
-        </form>
-    </div>
+		<!-- ================================================= -->
+		<!-- SEARCH BAR -->
+		<!-- ================================================= -->
+
+		<div class="row justify-content-center search-section">
+
+			<div class="col-md-7">
+
+				<form th:action="@{/search}" method="get">
+
+					<div class="input-group input-group-lg">
+
+
+						<!-- Search Icon -->
+
+						<span class="input-group-text bg-white border-0"> <i
+							class="bi bi-search"></i>
+
+						</span>
+
+
+						<!-- Search Input -->
+
+						<input type="text" name="keyword" class="form-control border-0"
+							placeholder="Search by Company, Car Name, City..."
+							th:value="${keyword}">
+
+
+						<!-- Search Button -->
+
+						<button class="btn btn-warning fw-bold" type="submit">
+
+							<i class="bi bi-search"></i> Search
+
+						</button>
+
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+
+
+		<!-- ================================================= -->
+		<!-- CAR LIST -->
+		<!-- ================================================= -->
+
+		<div class="masonry" th:if="${cars != null && !cars.isEmpty()}">
+
+
+			<!-- ================================================= -->
+			<!-- CAR CARD -->
+			<!-- ================================================= -->
+
+			<div class="car-tile" th:each="car : ${cars}">
+
+
+				<div class="car-body">
+
+
+					<!-- ========================================= -->
+					<!-- COMPANY + CAR NAME -->
+					<!-- ========================================= -->
+
+					<div class="car-title"
+						th:text="${car.companyName + ' ' + car.carName}">Car Name</div>
+
+
+
+					<!-- ========================================= -->
+					<!-- PRICE -->
+					<!-- ========================================= -->
+
+					<div class="price">
+
+						₹ <span th:text="${car.purchasePrice}"> Price </span>
+
+					</div>
+
+
+
+					<!-- ========================================= -->
+					<!-- YEAR -->
+					<!-- ========================================= -->
+
+					<div class="info">
+
+						<i class="bi bi-calendar3"></i> Year : <span th:text="${car.year}">
+
+							2025 </span>
+
+					</div>
+
+
+
+					<!-- ========================================= -->
+					<!-- FUEL -->
+					<!-- ========================================= -->
+
+					<div class="info">
+
+						<i class="bi bi-fuel-pump"></i> Fuel : <span
+							th:text="${car.fuelType}"> Petrol </span>
+
+					</div>
+
+
+
+					<!-- ========================================= -->
+					<!-- CITY -->
+					<!-- ========================================= -->
+
+					<div class="info">
+
+						<i class="bi bi-geo-alt-fill"></i> City : <span
+							th:text="${car.city}"> Mumbai </span>
+
+					</div>
+
+
+
+					<!-- ========================================= -->
+					<!-- MODEL -->
+					<!-- ========================================= -->
+
+					<div class="badge-custom" th:text="${car.model}">Model</div>
+
+
+
+					<!-- ========================================= -->
+					<!-- VIEW DETAILS -->
+					<!-- ========================================= -->
+
+					<a th:href="@{/details/{id}(id=${car.carid})}" class="btn-details">
+
+						<i class="bi bi-eye-fill"></i> View Details
+
+					</a>
+
+
+
+					<!-- ========================================= -->
+					<!-- DELETE -->
+					<!-- ========================================= -->
+
+					<a th:href="@{/deletecars(carid=${car.carid})}" class="btn-details">
+
+						<i class="bi bi-trash-fill"></i> Delete
+
+					</a>
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+
+		<!-- ================================================= -->
+		<!-- NO RECORD MESSAGE -->
+		<!-- ================================================= -->
+
+		<div class="no-record" th:if="${cars == null || cars.isEmpty()}">
+
+			<i class="bi bi-car-front-fill" style="font-size: 45px;"> </i> <br>
+			<br> No cars found.
+
+		</div>
+
+
+
+		<!-- ================================================= -->
+		<!-- PAGINATION -->
+		<!-- ================================================= -->
+
+		<div class="pagination-section"
+     th:if="${totalPages != null && totalPages > 0}">
+
+    <nav>
+
+        <ul class="pagination">
+
+            <!-- Previous -->
+            <li class="page-item"
+                th:classappend="${currentPage == 0} ? ' disabled'">
+
+                <a class="page-link"
+                   th:href="@{/enlisted(pageNo=${currentPage - 1},pageSize=3)}">
+                    Previous
+                </a>
+
+            </li>
+
+
+            <!-- Page Numbers -->
+            <li class="page-item"
+                th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+                th:classappend="${i == currentPage} ? ' active'">
+
+                <a class="page-link"
+                   th:href="@{/enlisted(pageNo=${i},pageSize=3)}"
+                   th:text="${i + 1}">
+                </a>
+
+            </li>
+
+
+            <!-- Next -->
+            <li class="page-item"
+                th:classappend="${currentPage == totalPages - 1} ? ' disabled'">
+
+                <a class="page-link"
+                   th:href="@{/enlisted(pageNo=${currentPage + 1},pageSize=3)}">
+                    Next
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
 </div>
 
 
-
-    <div class="masonry">
-
+	</div>
 
 
-        <div class="car-tile" th:each="car : ${cars}">
+	<!-- Bootstrap JS -->
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+		
+	</script>
 
 
-            <div class="car-body">
-
-
-                <div class="car-title"
-                     th:text="${car.companyName + ' ' + car.carName}">
-                    Car Name
-                </div>
-
-
-
-                <div class="price">
-
-                    ₹
-
-                    <span th:text="${car.purchasePrice}">
-                        Price
-                    </span>
-
-                </div>
-
-
-
-
-                <div class="info">
-
-                    <i class="bi bi-calendar3"></i>
-
-                    Year :
-
-                    <span th:text="${car.year}">
-                        2025
-                    </span>
-
-                </div>
-
-
-
-
-                <div class="info">
-
-                    <i class="bi bi-fuel-pump"></i>
-
-                    Fuel :
-
-                    <span th:text="${car.fuelType}">
-                        Petrol
-                    </span>
-
-                </div>
-
-
-
-
-                <div class="info">
-
-                    <i class="bi bi-geo-alt-fill"></i>
-
-                    City :
-
-                    <span th:text="${car.city}">
-                        Mumbai
-                    </span>
-
-                </div>
-                <div class="badge-custom"
-                     th:text="${car.model}">
-                    Model
-                </div>
-                
-                <a th:href="@{/details/{id}(id=${car.carid})}"
-				   class="btn-details">
-				    <i class="bi bi-eye-fill"></i>
-				    View Details
-				</a>
-                
-                <a th:href="@{/deletecars(carid=${car.carid})}"
-					   class="btn-details">
-					   <i class="bi bi-eye-fill"></i>
-					    Delete
-				</a>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
+
 </html>

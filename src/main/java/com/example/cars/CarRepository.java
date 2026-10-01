@@ -16,6 +16,7 @@ public interface CarRepository extends JpaRepository<CarEntity,Integer> {
 	           "LOWER(c.city) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
 	           "LOWER(c.carType) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
 	           "LOWER(c.showroomName) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
+	           "LOWER(c.gearConfiguration) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
 	           "LOWER(c.gearTransmission) LIKE LOWER(CONCAT('%', :keyword, '%'))")
 	    List<CarEntity> searchCars(@Param("keyword") String keyword);
 

@@ -3,6 +3,7 @@ package com.example.cars;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.Registration;
@@ -20,6 +21,8 @@ public interface CarService {
 	public void DeleteAll(); 
 	
 	List<CarEntity> searchByKeyword(String keyword);
+	
+	public Page<CarEntity> GetAllCars(int pagenum,int pagesize);
 	
 	
 }
