@@ -248,7 +248,7 @@ public class UserController {
 			@GetMapping("/enlistedsellers")
 			public String enlistedSeller(
 			        @RequestParam(defaultValue = "0") int pageNo,
-			        @RequestParam(defaultValue = "3") int pageSize,
+			        @RequestParam(defaultValue = "30") int pageSize,
 			        Model model) {
 
 			    Page<SellersInfo> page =
@@ -263,16 +263,6 @@ public class UserController {
 			}
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
 	// Logic for Review Page
 	@GetMapping("/trust")
 	public String TruestedUser() {
@@ -293,7 +283,7 @@ public class UserController {
 	@GetMapping("/enlisted")
 	public String EnlistedCars(
 	        @RequestParam(defaultValue = "0") int pageNo,
-	        @RequestParam(defaultValue = "3") int pageSize,
+	        @RequestParam(defaultValue = "150") int pageSize,
 	        Model model) {
 
 	    Page<CarEntity> page = cserv.GetAllCars(pageNo, pageSize);
@@ -406,7 +396,7 @@ public class UserController {
 	 @GetMapping("/pgarage")
 	 public String enlistedGarages(
 	         @RequestParam(defaultValue = "0") int pageNo,
-	         @RequestParam(defaultValue = "3") int pageSize,
+	         @RequestParam(defaultValue = "50") int pageSize,
 	         Model model) {
 
 	    

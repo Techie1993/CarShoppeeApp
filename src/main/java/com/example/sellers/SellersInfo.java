@@ -27,13 +27,13 @@ public class SellersInfo {
 	@Column(name="seller_name")
 	private String name;
 	
-	@Column(name="seller_email",unique=true)
+	@Column(name="seller_email")
 	private String email;
 	
-	@Column(name="seller_mobile",unique=true)
+	@Column(name="seller_mobile")
 	private String mobile;
 
-	@Column(name="seller_aadhar_card",unique=true)
+	@Column(name="seller_aadhar_card")
 	private String aadharcard;
 	
 	@Lob

@@ -503,7 +503,7 @@ body {
                 th:classappend="${currentPage == 0} ? ' disabled'">
 
                 <a class="page-link"
-                   th:href="@{/enlisted(pageNo=${currentPage - 1},pageSize=3)}">
+                   th:href="@{/enlisted(pageNo=${currentPage - 1},pageSize=150)}">
                     Previous
                 </a>
 
@@ -516,7 +516,7 @@ body {
                 th:classappend="${i == currentPage} ? ' active'">
 
                 <a class="page-link"
-                   th:href="@{/enlisted(pageNo=${i},pageSize=3)}"
+                   th:href="@{/enlisted(pageNo=${i},pageSize=150)}"
                    th:text="${i + 1}">
                 </a>
 
@@ -528,30 +528,19 @@ body {
                 th:classappend="${currentPage == totalPages - 1} ? ' disabled'">
 
                 <a class="page-link"
-                   th:href="@{/enlisted(pageNo=${currentPage + 1},pageSize=3)}">
+                   th:href="@{/enlisted(pageNo=${currentPage + 1},pageSize=150)}">
                     Next
                 </a>
-
             </li>
-
         </ul>
-
     </nav>
-
 </div>
-
-
 	</div>
-
-
 	<!-- Bootstrap JS -->
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 		
 	</script>
-
-
 </body>
-
 </html>

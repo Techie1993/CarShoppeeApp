@@ -305,54 +305,55 @@ body {
          PAGINATION
          ======================== -->
 
-		<div class="pagination-container" th:if="${totalPages > 0}">
+		<div class="pagination-section"
+     th:if="${totalPages != null && totalPages > 0}">
 
-			<nav aria-label="Garage Pagination">
+    <nav>
 
-				<ul class="pagination">
+        <ul class="pagination">
 
+            <!-- Previous -->
+            <li class="page-item"
+                th:classappend="${currentPage == 0} ? ' disabled'">
 
-					<!-- PREVIOUS BUTTON -->
+                <a class="page-link"
+                   th:href="@{/pgarage(pageNo=${currentPage - 1},pageSize=50)}">
+                    Previous
+                </a>
 
-					<li class="page-item"
-						th:classappend="${currentPage == 0} ? 'disabled'"><a
-						class="page-link"
-						th:href="@{/pgarage(pageNo=${currentPage - 1},pageSize=${pageSize})}">
-
-							<i class="bi bi-chevron-left"></i> Previous
-
-					</a></li>
-
-
-					<!-- PAGE NUMBERS -->
-
-					<li class="page-item"
-						th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
-						th:classappend="${currentPage == i} ? 'active'"><a
-						class="page-link"
-						th:href="@{/pgarage(pageNo=${i},pageSize=${pageSize})}"
-						th:text="${i + 1}"> 1 </a></li>
+            </li>
 
 
-					<!-- NEXT BUTTON -->
+            <!-- Page Numbers -->
+            <li class="page-item"
+                th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+                th:classappend="${i == currentPage} ? ' active'">
 
-					<li class="page-item"
-						th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+                <a class="page-link"
+                   th:href="@{/pgarage(pageNo=${i},pageSize=50)}"
+                   th:text="${i + 1}">
+                </a>
 
-						<a class="page-link"
-						th:href="@{/pgarage(pageNo=${currentPage + 1},pageSize=${pageSize})}">
+            </li>
 
-							Next <i class="bi bi-chevron-right"></i>
 
-					</a>
+            <!-- Next -->
+            <li class="page-item"
+                th:classappend="${currentPage == totalPages - 1} ? ' disabled'">
 
-					</li>
+                <a class="page-link"
+                   th:href="@{/pgarage(pageNo=${currentPage + 1},pageSize=50)}">
+                    Next
+                </a>
 
-				</ul>
+            </li>
 
-			</nav>
+        </ul>
 
-		</div>
+    </nav>
+
+</div>
+
 
 
 		<!-- PAGE INFORMATION -->
